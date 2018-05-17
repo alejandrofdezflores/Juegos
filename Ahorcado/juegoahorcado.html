@@ -1,6 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <!-- saved from url=(0047)http://www.uv.es/~jac/guia/jscript/palabras.htm -->
 <HTML><head>
+<meta charset="UTF-8">
 <script type="text/javascript"></script>
 <link rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" type="text/css"s/>
@@ -62,7 +63,13 @@ function DibujaLetra(visor, letra) {
 
 
 function NuevaLetra(visor, letra) {
-   //añade letra lista de letras
+  //Crear un Array que almacene letras y si la letra ya esta en ese array salta un alert diciendo X
+  var oculto=new Array();
+  for (n=0;n<=27;n++){
+    oculto[n]=letra;
+  }
+
+  //añade letra lista de letras
    visor.displayLetras.value += letra + " "
    //comprueba si ha de pasar a la siguiente fila
    if(colNueva == 3) {
@@ -70,12 +77,14 @@ function NuevaLetra(visor, letra) {
       colNueva = 0
    } else
       colNueva++
+
 }
 
 
 function Juega(visor, letra) {
    //comprueba si esta jugando
    if (jugando) {
+
       //ciclo de jugada
       //1. añade letra a la lista
       NuevaLetra(visor, letra)
@@ -91,7 +100,8 @@ function Juega(visor, letra) {
          FinJuego(true)
       } else {
          alert('Pulsa Juego nuevo para comenzar\nuna partida nueva.')
-   }
+
+ }
 }
 
 function IniciaJuego(visor) {
